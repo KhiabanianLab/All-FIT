@@ -1,0 +1,33 @@
+Warning! There is discontinuous confidence interval around final purity estimate; we may not have enough power to break ambiguity between different purity estimates.
+len_SNV_list:24
+len_SNV_list_after_germline_removed:21
+len_SNV_list_after_germline_and_subclone_removed:19
+All_variants	Presence(T)/Absence(F)_after_germline_removed	Presence(T)/Absence(F)_after_germline&subclone_removed
+Var11:50.0:496	False	False
+Var17:91.0:923	True	True
+Var16:92.0:682	True	True
+Var1:37.0:858	True	False
+Var18:90.0:547	True	True
+Var15:86.0:973	True	True
+Var22:72.0:373	True	True
+Var6:70.0:654	True	True
+Var23:96.0:414	True	True
+Var9:85.0:880	True	True
+Var12:50.0:924	False	False
+Var10:52.0:340	False	False
+Var3:37.0:957	True	False
+Var5:73.0:706	True	True
+Var14:85.0:730	True	True
+Var24:40.0:744	True	True
+Var21:23.0:303	True	True
+Var4:70.0:887	True	True
+Var7:82.0:609	True	True
+Var2:38.0:980	True	True
+Var20:78.0:901	True	True
+Var13:88.0:651	True	True
+Var8:84.0:464	True	True
+Var19:67.0:391	True	True
+purity:	0.81	0.8,0.81,0.82,0.83
+purity_after_removing_germline_no_LOH:	0.82	0.8,0.81,0.82,0.83
+purity_after_removing_germline_no_LOH_and_subclonal:	0.83	0.81,0.82,0.83,0.84
+SIM_DATA_3.5367	0.83	0.81,0.82,0.83,0.84

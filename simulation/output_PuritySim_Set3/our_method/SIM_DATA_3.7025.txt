@@ -1,0 +1,30 @@
+len_SNV_list:22
+len_SNV_list_after_germline_removed:18
+len_SNV_list_after_germline_and_subclone_removed:18
+All_variants	Presence(T)/Absence(F)_after_germline_removed	Presence(T)/Absence(F)_after_germline&subclone_removed
+Var13:86.0:700	True	True
+Var20:18.0:896	True	True
+Var7:44.0:550	True	True
+Var8:52.0:494	False	False
+Var10:51.0:503	False	False
+Var9:53.0:819	False	False
+Var18:47.0:811	True	True
+Var3:74.0:959	True	True
+Var21:20.0:667	True	True
+Var5:82.0:625	True	True
+Var11:52.0:590	False	False
+Var1:43.0:752	True	True
+Var2:38.0:752	True	True
+Var15:88.0:894	True	True
+Var17:93.0:845	True	True
+Var14:88.0:955	True	True
+Var12:84.0:446	True	True
+Var6:83.0:433	True	True
+Var4:72.0:789	True	True
+Var16:92.0:896	True	True
+Var22:38.0:484	True	True
+Var19:36.0:359	True	True
+purity:	0.84	0.82,0.83,0.84,0.85
+purity_after_removing_germline_no_LOH:	0.84	0.82,0.83,0.84,0.85,0.86
+purity_after_removing_germline_no_LOH_and_subclonal:	0.84	0.82,0.83,0.84,0.85,0.86
+SIM_DATA_3.7025	0.84	0.82,0.83,0.84,0.85,0.86

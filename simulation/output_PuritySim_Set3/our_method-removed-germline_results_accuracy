@@ -1,0 +1,6 @@
+scipy correlation between real purity and our method purity with p-value: (0.999552725149457, 0.0)
+p-value < threshold ( 9.88131291682e-324 )
+accuracy within confidence region: 92.38
+count our method purity same as real purity: 6070
+count our method purity higher than real purity and not in confidence region: 420
+count our method purity lower than real purity and not in confidence region: 342

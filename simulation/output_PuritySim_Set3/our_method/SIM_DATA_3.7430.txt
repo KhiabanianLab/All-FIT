@@ -1,0 +1,67 @@
+There is discontinuous confidence interval around purity estimates before reaching the last purity.
+Warning! There is discontinuous confidence interval around final purity estimate; we may not have enough power to break ambiguity between different purity estimates.
+len_SNV_list:57
+len_SNV_list_after_germline_removed:45
+len_SNV_list_after_germline_and_subclone_removed:43
+All_variants	Presence(T)/Absence(F)_after_germline_removed	Presence(T)/Absence(F)_after_germline&subclone_removed
+Var35:59.0:821	True	True
+Var46:29.0:756	True	True
+Var23:48.0:692	False	False
+Var19:18.0:766	True	True
+Var11:11.0:729	True	True
+Var42:6.0:494	True	True
+Var34:58.0:522	False	False
+Var56:76.0:603	True	True
+Var45:7.0:996	True	True
+Var52:62.0:716	False	False
+Var50:61.0:608	False	False
+Var51:57.0:948	True	True
+Var37:60.0:589	True	True
+Var3:11.0:444	True	True
+Var57:9.0:737	True	True
+Var20:51.0:986	False	False
+Var54:35.0:546	True	True
+Var6:10.0:427	True	True
+Var38:30.0:336	True	True
+Var43:19.0:770	True	True
+Var1:10.0:843	True	True
+Var22:51.0:454	False	False
+Var40:37.0:908	True	True
+Var39:35.0:394	True	True
+Var49:43.0:625	True	True
+Var44:26.0:360	True	True
+Var41:14.0:549	True	True
+Var30:60.0:404	True	True
+Var28:53.0:516	True	True
+Var21:51.0:968	False	False
+Var7:11.0:801	True	True
+Var17:19.0:895	True	True
+Var5:11.0:369	True	True
+Var47:41.0:724	True	True
+Var12:11.0:495	True	True
+Var9:13.0:771	True	True
+Var15:21.0:845	True	True
+Var53:42.0:648	True	True
+Var13:9.0:838	True	False
+Var26:47.0:431	False	False
+Var36:63.0:965	True	True
+Var48:44.0:580	True	True
+Var32:60.0:615	True	True
+Var33:60.0:887	True	True
+Var18:20.0:557	True	True
+Var2:4.0:342	True	False
+Var27:52.0:329	False	False
+Var14:10.0:607	True	True
+Var8:12.0:547	True	True
+Var31:65.0:622	True	True
+Var16:23.0:337	True	True
+Var10:11.0:548	True	True
+Var25:51.0:709	False	False
+Var29:53.0:395	True	True
+Var55:59.0:339	False	False
+Var24:48.0:665	False	False
+Var4:10.0:952	True	True
+purity:	0.22	0.21,0.22,0.23
+purity_after_removing_germline_no_LOH:	0.21	0.2,0.21,0.22
+purity_after_removing_germline_no_LOH_and_subclonal:	0.21	0.21,0.22
+SIM_DATA_3.7430	0.21	0.21,0.22

@@ -1,0 +1,2 @@
+Chromosome	Start	End	Num_Probes	Segment_Mean
+3	149688572	149688671	1	-1.0

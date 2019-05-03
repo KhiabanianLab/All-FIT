@@ -1,0 +1,16 @@
+ID	Allele_Freq	Depth	Ploidy	Model
+Var1	42.0	517	1	somatic, LOH CNmut = 1
+Var2	36.0	385	1	somatic, LOH CNmut = 1
+Var3	41.0	347	1	somatic, LOH CNmut = 1
+Var4	56.0	532	2	somatic, CNmut = 2
+Var5	56.0	550	2	somatic, CNmut = 2
+Var6	55.0	901	2	somatic, CNmut = 2
+Var7	58.0	740	2	somatic, CNmut = 2
+Var8	53.0	557	2	somatic, CNmut = 2
+Var9	61.0	379	2	somatic, CNmut = 2
+Var10	50.0	445	2	somatic, CNmut = 2
+Var11	54.0	469	2	somatic, CNmut = 2
+Var12	42.0	836	3	somatic, CNmut=2
+Var13	76.0	479	5	somatic, CNmut=5
+Var14	43.0	930	3	somatic, CNmut=2
+Var15	27.0	990	2	somatic, CNmut = 1

@@ -1,0 +1,6 @@
+[Directory]/home/jl1444/project/automerging_project/data_for_paper/simulation/All-FIT/simulation
+[Start] Thu May 2 10:14:32 EDT 2019
+../All-FIT.py:131: RuntimeWarning: divide by zero encountered in log10
+  gene_CCF_weight[SNV_list[var]].append(np.log10(temp))
+SIM_DATA_3.1 	 0.37 	 0.36000000000000004,0.37
+[End] Thu May 2 10:15:15 EDT 2019
