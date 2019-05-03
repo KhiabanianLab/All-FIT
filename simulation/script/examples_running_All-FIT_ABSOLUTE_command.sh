@@ -5,7 +5,7 @@
 #SBATCH --export=ALL
 #SBATCH -D /home/jl1444/project/automerging_project/data_for_paper/simulation/All-FIT/simulation/log
 
-script_directory=/home/jl1444/project/automerging_project/data_for_paper/simulation
+script_directory=/home/jl1444
 cd ${script_directory}/All-FIT/simulation
 echo [Directory]`pwd`
 starting=$(date)

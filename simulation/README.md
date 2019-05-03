@@ -20,7 +20,7 @@ CNmut - mutated allele's copy-number (*c*<sub>m</sub>)<br/>
 ? ranges from 1 to *Y* and ?? ranges from 3 to 8, representing high ploidy variants
 
 ## How to run simulation
-Modifies script_directory in line 7 of `script/code_simulation/AddNeutralCNSegments.py`
+Modifies script_directory in line 7 of `script/code_simulation/AddNeutralCNSegments.py` and `script/code_simulation/part1_generate_ABSOLUTE_input.py`
 ```
 ./script/run_simulation.sh 1 100
 ```

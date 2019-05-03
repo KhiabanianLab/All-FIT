@@ -4,14 +4,14 @@ import random,sys,math
 import subprocess as sp
 
 loc = sp.Popen(["pwd"],stdout=sp.PIPE).communicate()[0].strip()+"/"
+script_directory = "/home/jl1444/"
 
 #Reading in seg_probes files to randomly chose coding position for writing into ABSOLUTE input
 chr_list = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24"]
 
 chr_pos_dic = {}     #chr as key, [[start,end]] as value
 for i in chr_list:
-	fh = open("/home/jl1444/project/automerging_project/data_for_paper/SureSelect_v5/"+i+"/seg_probes","r")
-
+	fh = open(script_directory+"/All-FIT/simulation/SureSelect_v5/"+i+"/seg_probes","r")
 	data = fh.readlines()
 	fh.close()
 

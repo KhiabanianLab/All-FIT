@@ -4,10 +4,14 @@ folder=$1
 sample=$2
 if [ -d output_PuritySim_Set${folder} ];then 
 	rm -r output_PuritySim_Set${folder}
-	mkdir output_PuritySim_Set${folder}
-	mkdir output_PuritySim_Set${folder}/our_method
-	mkdir output_PuritySim_Set${folder}/ABSOLUTE
 fi
+if [ -d PuritySim_Set${folder} ];then 
+	rm -r PuritySim_Set${folder}
+fi
+mkdir output_PuritySim_Set${folder}
+mkdir output_PuritySim_Set${folder}/our_method
+mkdir output_PuritySim_Set${folder}/ABSOLUTE
+
 python script/code_simulation/purity_simulation.py $folder $sample
 
 cd "PuritySim_Set"${folder}"/our_method"
