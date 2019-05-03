@@ -48,8 +48,9 @@ python All-FIT.py -i All-FIT/simulation/PuritySim_Set3/our_method/SIM_DATA_3.1.x
 - PuritySim_Set7 - similar to PuritySim_Set3, but the number of variants in each set ranges from 5 to 100 (for testing the effect of number of mutation in a sample on All-FIT's accuracy)
 
 ### Other scripts purpose
-- removed_germline.py is used to remove germline variations from simulated datasets to provide input files in folder our_method-removed-germline (run this script at $*$/PuritySim_Set/our_method/)
+- removed_germline.py is used to remove germline variations from simulated datasets to provide input files in folder our_method-removed-germline (run this script at /PuritySim_Set/our_method/)
 - check_accuracy.py, subclonal_check_accuracy_interval.py, high_ploidy_check_accuracy_interval.py are used to generate accuracy of All-FIT with Pearson's correlation coefficient as well as Figures 4,5,S2-S5. (run these scripts at the directory of /output_PuritySim_Set/)
 - estimating_error_num_mut.py is used to generate Figure S1.
+- examples_running_All-FIT_ABSOLUTE_command.sh provides examples for running All-FIT and ABSOLUTE.
 
 Due to patients' confidential issues , only simulated data is provided.
