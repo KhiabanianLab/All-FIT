@@ -29,10 +29,10 @@ depth = []
 ploidy = []
 for row in ref:
 	row = row.strip().split("\t")
-	if row[3].split(",")[0] == "somatic":
-		freq.append(float(row[0])/100)
-		depth.append(int(row[1]))
-		ploidy.append(int(row[2]))
+	if row[4].split(",")[0] == "somatic":
+		freq.append(float(row[1])/100)
+		depth.append(int(row[2]))
+		ploidy.append(int(row[3]))
 
 #generating ABSOLUTE cnv input
 tmp_name = input_file.split(".xls")[0]
