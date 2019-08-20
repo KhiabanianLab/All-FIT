@@ -67,7 +67,6 @@ def gray_box_accuracy(vaf_list,depth_list,purity,ploidy_list,varType):
 		freqLB,freqUB = binom_interval(round(d*vaf_list[j]),d,alpha)
 		f_range = np.arange(freqLB,freqUB+f_incre,f_incre)
 		f_range[-1] = freqUB
-
 		aic = [{} for f in range(len(f_range))]
 		for f in range(len(f_range)):
 			freq = f_range[f]
@@ -197,6 +196,7 @@ def predicted_purity_from_CFF(vaf_list,depth_list,SNV_list,out_name,ploidy_list,
 	exp1 = expected_vaf_model(SNV_list,all_purity,index_purity_bef1,weight,ploidy_list,vaf_list)
 	exp2 = expected_vaf_model(SNV_list,all_purity,index_purity_bef2,weight,ploidy_list,vaf_list)
 	exp3 = expected_vaf_model(SNV_list,all_purity,np.argmin(sum_CCF_weight),weight,ploidy_list,vaf_list)
+
 	all_mod = list(set(exp1[1])|set(exp2[1])|set(exp3[1]))
 	oth_color = [cm(1.*i/len(all_mod)) for i in range(0,len(all_mod),1)]
 
@@ -233,10 +233,18 @@ def predicted_purity_from_CFF(vaf_list,depth_list,SNV_list,out_name,ploidy_list,
 	s5 = plot(fig,5,all_purity,[],[],n_SNV,gene_CCF_weight,dic_color,SNV_list,"Variants likelihood distribution after removing germline heterozygous mutations",[],[],[])
 	s6 = plot(fig,6,all_purity,Bef2_sum_CCF_weight,Bef2_sum_CCF_weight_LB,[],[],[],[],"Purity estimated after excluding germline heterozygous mutations",[],[],[])
 	s7 = plot(fig,7,[],[],[],[],[],oth_color,[],"VAF distribution at "+r'$p$'+" = %.2f"%(round(pur2,2)),vaf_list,exp2,all_mod)
+	for l in range(len(s7[1])):
+		if s7[1][l] not in labels:
+			labels.append(s7[1][l])
+			lines.append(s7[0][l])
 	s8 = plot(fig,8,[],[],[],[],[],[],[],"CCF distribution at "+r'$p$'+" = %.2f"%(round(pur2,2)),exp2[2],[],[])
 	s9 = plot(fig,9,all_purity,[],[],n2_SNV,gene_CCF_weight,dic_color,SNV_list,"Variants likelihood distribution after removing germline heterozygous and sub-clonal mutations",[],[],[])
 	s10 = plot(fig,10,all_purity,sum_CCF_weight,sum_CCF_weight_LB,[],[],[],[],"Purity estimated after excluding germline heterozygous and sub-clonal mutations",[],[],[])
 	s11 = plot(fig,11,[],[],[],[],[],oth_color,[],"VAF distribution at "+r'$p$'+" = %.2f"%(round(pur3,2)),vaf_list,exp3,all_mod)
+	for l in range(len(s11[1])):
+		if s11[1][l] not in labels:
+			labels.append(s11[1][l])
+			lines.append(s11[0][l])
 	s12 = plot(fig,12,[],[],[],[],[],[],[],"CCF distribution at "+r'$p$'+" = %.2f"%(round(pur3,2)),exp3[2],[],[])
 	fig.set_size_inches(20,12)
 	plt.tight_layout()
@@ -267,15 +275,18 @@ def expected_vaf_model(snv_list,all_purity,index,weight,ploidy_list,obs_vaf_list
 				largest_w = weight[index][snv][name]
 				best_model = name
 		cmut = int(best_model.split("=")[1])
+		tmp_Y = ploidy_list[snv]
+		if len(best_model.split("LOH")) == 2:
+			tmp_Y = 1
 		if best_model.split(",")[0] == "Somatic":
-			vaf = cmut*purity/((2*(1-purity))+(ploidy_list[snv]*purity))
+			vaf = cmut*purity/((2*(1-purity))+(tmp_Y*purity))
 			ccf = obs_vaf_list[snv]/vaf
 		else:
-			vaf = (1-purity+(cmut*purity))/((2*(1-purity))+(ploidy_list[snv]*purity))
-			ccf = ((obs_vaf_list[snv]*((2*(1-purity))+(ploidy_list[snv]*purity)))-1+purity)/(cmut*purity)
+			vaf = (1-purity+(cmut*purity))/((2*(1-purity))+(tmp_Y*purity))
+			ccf = ((obs_vaf_list[snv]*((2*(1-purity))+(tmp_Y*purity)))-1+purity)/(cmut*purity)
 		if vaf not in vaf_list:
 			vaf_list.append(vaf)
-			model_list.append(best_model+", ploidy="+str(ploidy_list[snv]))
+			model_list.append(best_model+", ploidy="+str(tmp_Y))
 		ccf_list.append(ccf)
 	return [vaf_list,model_list,ccf_list]
 
@@ -316,16 +327,12 @@ def plot(fig,count,all_purity,sumCW,sumCW_LB,snv,gene_CCF_weight,dic_color,SNV_l
 		if count%panel_per_row == 3:
 			exp_vaf = exp_vaf_mod[0]
 			exp_model = exp_vaf_mod[1]
-			if count == 3:
-				for v in range(len(exp_vaf)):
-					lines.append(ax.axvline(exp_vaf[v],c=dic_color[all_model.index(exp_model[v])],linestyle='dashed',label=exp_model[v]))
-					labels.append(exp_model[v])
-			else:
-				for v in range(len(exp_vaf)):
-					ax.axvline(exp_vaf[v],c=dic_color[all_model.index(exp_model[v])],linestyle='dashed')
+			for v in range(len(exp_vaf)):
+				lines.append(ax.axvline(exp_vaf[v],c=dic_color[all_model.index(exp_model[v])],linestyle='dashed',label=exp_model[v]))
+				labels.append(exp_model[v])
 			ax.set_xlabel("Observed variant allele frequencies",fontsize=legend_fontsize)
 		else:
-			ax.set_xlabel("Cancer cell franctions",fontsize=legend_fontsize)
+			ax.set_xlabel("Cancer cell fractions",fontsize=legend_fontsize)
 		ax.set_ylabel("Counts",fontsize=legend_fontsize)
 	ax.set_title("\n".join(textwrap.wrap(title_name, 35)),y=1.03,fontsize=18)
 	if count%panel_per_row == 1:
