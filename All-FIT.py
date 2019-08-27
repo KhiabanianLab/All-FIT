@@ -215,7 +215,7 @@ def predicted_purity_from_CFF(vaf_list,depth_list,SNV_list,out_name,ploidy_list,
 	out.write("len_SNV_list_after_germline_removed:%i\n"%len(n_SNV))
 	out.write("len_SNV_list_after_germline_and_subclone_removed:%i\n"%len(n2_SNV))
 	out.write("All_variants\tPresence(T)/Absence(F)_after_germline_removed\tPresence(T)/Absence(F)_after_germline&subclone_removed\n")
-	for var in gene_CCF_weight.keys():
+	for var in SNV_list:
 		out.write(var+"\t"+str(var in n_SNV)+"\t"+str(var in n2_SNV)+"\n")
 	out.write("purity:\t"+str(round(pur1,2))+"\t"+",".join([str(round(x,2)) for x in CI_p1])+"\n")
 	out.write("purity_after_removing_germline_no_LOH:\t"+str(round(pur2,2))+"\t"+",".join([str(round(x,2)) for x in CI_p2])+"\n")
@@ -393,7 +393,19 @@ def main():
 		ind_SNV.append(row[0]+":%.2f"%ind_vaf[-1]+":"+row[2])
 		ind_ploidy.append(int(row[3]))
 
-	CCF_pred_purity,CI_pred_purity = predicted_purity_from_CFF(ind_vaf,ind_depth,ind_SNV,out_dir+"/"+out_name,ind_ploidy,LOH_thres,std_dev,W_thres,varType)
+	#sorting data based on ascending AF
+	sorted_vaf_index = np.argsort(np.array(ind_vaf))
+	sorted_vaf = []
+	sorted_depth = []
+	sorted_SNV = []
+	sorted_ploidy = []
+	for idx in sorted_vaf_index:
+		sorted_vaf.append(ind_vaf[idx])
+		sorted_depth.append(ind_depth[idx])
+		sorted_SNV.append(ind_SNV[idx])
+		sorted_ploidy.append(ind_ploidy[idx])
+
+	CCF_pred_purity,CI_pred_purity = predicted_purity_from_CFF(sorted_vaf,sorted_depth,sorted_SNV,out_dir+"/"+out_name,sorted_ploidy,LOH_thres,std_dev,W_thres,varType)
 	print(out_name,"\t",CCF_pred_purity,"\t",CI_pred_purity)
 
 if __name__ == "__main__":
